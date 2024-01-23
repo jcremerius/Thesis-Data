@@ -1,0 +1,64 @@
+db:
+    name: postgres
+    host: 127.0.0.1
+    user: postgres
+    pw: 1234
+save_intermediate: False
+csv_log: True 
+cohort:
+    icd_codes:
+    - N170
+    - N179
+    - N178
+    - N171
+    - N172
+    - 5849
+    - 5845
+    - 5848 
+    - 5847 
+    icd_version: 0
+    icd_seq_num: 3
+    drg_codes: []
+    drg_ontology: APR
+    age: []
+event_type: transfer
+case_notion: hospital admission
+case_attributes: [] 
+prompt_case_attributes: False 
+additional_event_attributes: 
+    - 
+        start_column: time:timestamp
+        end_column: outtime
+        time_column: charttime
+        table_to_aggregate: labevents
+        column_to_aggregate: 
+            - valuenum
+        aggregation_method: mean
+        filter_column: label
+        filter_values:
+            - Glucose
+            - Potassium
+            - Sodium
+            - Chloride
+            - Creatinine
+            - Urea Nitrogen
+            - Bicarbonate
+            - Anion Gap
+            - Magnesium
+            - Phosphate
+            - Calcium, Total
+            - Hematocrit
+            - Hemoglobin
+            - Platelet Count
+            - White Blood Cells
+            - MCV
+            - MCHC
+            - MCH
+            - Red Blood Cells
+            - RDW
+            - PTT
+            - INR(PT)
+            - PT
+            - pH
+            - RDW-SD
+            - pO2
